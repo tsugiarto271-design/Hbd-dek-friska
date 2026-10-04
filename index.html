@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Friska 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background: radial-gradient(circle at top,#ffd6e7 0%,#ff9fc5 35%,#e85c98 100%);
+  color:white;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* ================= BACKGROUND ================= */
+.bg{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+
+.star{
+  position:absolute;
+  color:#fff;
+  opacity:.7;
+  animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.2;transform:scale(.7)}
+  to{opacity:1;transform:scale(1.2)}
+}
+
+.heart{
+  position:fixed;
+  bottom:-40px;
+  animation:floatHeart linear forwards;
+  pointer-events:none;
+  z-index:30;
+}
+
+@keyframes floatHeart{
+  0%{transform:translateY(0) rotate(0deg); opacity:0;}
+  15%{opacity:1}
+  100%{transform:translateY(-110vh) rotate(360deg); opacity:0;}
+}
+
+/* ================= SCREEN ================= */
+.screen{
+  min-height:100vh;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:2;
+  padding:25px 18px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* ================= LOCK ================= */
+.lockCard{
+  width:min(400px,100%);
+  padding:35px 25px;
+  text-align:center;
+  border-radius:30px;
+  background:#ffffff24;
+  border:1px solid #ffffff55;
+  backdrop-filter:blur(18px);
+  box-shadow:0 25px 70px #8c174955;
+  animation:cardIn 1s ease;
+}
+
+@keyframes cardIn{
+  from{opacity:0; transform:translateY(40px) scale(.9);}
+  to{opacity:1; transform:translateY(0) scale(1);}
+}
+
+.smallTitle{
+  font-size:14px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  opacity:.9;
+}
+
+.lockCard h1{
+  font-family:'Great Vibes',cursive;
+  font-size:55px;
+  margin:10px 0;
+}
+
+.lockCard p{
+  font-size:14px;
+  opacity:.9;
+  margin-bottom:22px;
+}
+
+.pinDisplay{
+  height:55px;
+  border-radius:18px;
+  background:#ffffff22;
+  border:1px solid #ffffff55;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  letter-spacing:8px;
+  font-size:22px;
+  margin-bottom:20px;
+}
+
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.keypad button{
+  height:55px;
+  border:0;
+  border-radius:17px;
+  background:#ffffff30;
+  color:white;
+  font-size:19px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.keypad button:active{
+  transform:scale(.9);
+  background:#fff;
+  color:#e84d91;
+}
+
+.error{
+  color:#fff;
+  margin-top:14px;
+  font-size:13px;
+  min-height:20px;
+  font-weight: 500;
+}
+
+/* ================= GIFT ================= */
+.giftPage{
+  flex-direction:column;
+  text-align:center;
+}
+
+.giftPage h1{
+  font-family:'Great Vibes',cursive;
+  font-size:60px;
+  margin-bottom:10px;
+}
+
+.giftPage p{
+  font-size:14px;
+  margin-bottom:35px;
+}
+
+.gift{
+  width:190px;
+  height:170px;
+  position:relative;
+  cursor:pointer;
+  animation:giftFloat 2s infinite ease-in-out;
+  filter:drop-shadow(0 20px 20px #83134d66);
+}
+
+@keyframes giftFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-13px)}
+}
+
+.box{
+  position:absolute;
+  width:150px;
+  height:105px;
+  bottom:0;
+  left:20px;
+  background:linear-gradient(135deg,#ff4d91,#d92770);
+  border-radius:8px;
+}
+
+.box:before{
+  content:"";
+  position:absolute;
+  left:63px;
+  width:25px;
+  height:105px;
+  background:#ffd34e;
+}
+
+.lid{
+  position:absolute;
+  width:170px;
+  height:35px;
+  left:10px;
+  top:32px;
+  background:linear-gradient(135deg,#ff75ab,#ef347c);
+  border-radius:8px;
+  z-index:3;
+}
+
+.lid:before{
+  content:"";
+  position:absolute;
+  left:73px;
+  width:25px;
+  height:35px;
+  background:#ffd34e;
+}
+
+.bow{
+  position:absolute;
+  left:67px;
+  top:0;
+  z-index:5;
+  width:55px;
+  height:30px;
+}
+
+.bow:before,
+.bow:after{
+  content:"";
+  position:absolute;
+  width:38px;
+  height:27px;
+  border:8px solid #ffd34e;
+  border-radius:50%;
+}
+
+.bow:before{left:-25px; transform:rotate(25deg);}
+.bow:after{left:30px; transform:rotate(-25deg);}
+
+.openHint{
+  margin-top:30px;
+  font-weight:600;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  50%{transform:scale(1.05);opacity:.6}
+}
+
+/* ================= BIRTHDAY ================= */
+.birthday{
+  text-align:center;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.flash{
+  position:fixed;
+  inset:0;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+  z-index:100;
+}
+
+.flash.active{
+  animation:flash .6s;
+}
+
+@keyframes flash{
+  0%{opacity:.9}
+  100%{opacity:0}
+}
+
+.birthday h1{
+  font-family:'Great Vibes',cursive;
+  font-size:75px;
+  line-height:1;
+  text-shadow:0 7px 20px #8d174b88;
+  animation:titlePop 1s;
+}
+
+@keyframes titlePop{
+  0%{transform:scale(.2) rotate(-10deg);opacity:0}
+  80%{transform:scale(1.1)}
+  100%{transform:scale(1);opacity:1}
+}
+
+.name{
+  font-size:24px;
+  font-weight:700;
+  margin:15px 0;
+  letter-spacing:1px;
+}
+
+.typing{
+  max-width:600px;
+  min-height:55px;
+  line-height:1.7;
+  margin:auto;
+  font-size:15px;
+}
+
+.button{
+  border:0;
+  padding:14px 24px;
+  border-radius:50px;
+  margin:10px 5px;
+  background:white;
+  color:#db3f7d;
+  font-weight:700;
+  font-family:inherit;
+  cursor:pointer;
+  box-shadow:0 10px 30px #80144255;
+  transition:.25s;
+}
+
+.button:active{
+  transform:scale(.92);
+}
+
+.scrollHint{
+  margin-top:25px;
+  font-size:13px;
+  opacity:.8;
+}
+
+/* ================= CONFETTI ================= */
+.confetti{
+  position:fixed;
+  width:9px;
+  height:15px;
+  top:-30px;
+  z-index:80;
+  pointer-events:none;
+  animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+/* ================= BOUQUET ================= */
+.bouquet{
+  flex-direction:column;
+  text-align:center;
+}
+
+.bouquet h2{
+  font-family:'Great Vibes',cursive;
+  font-size:55px;
+}
+
+.bouquet p{
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.flowerArea{
+  width:min(400px,100%);
+  height:430px;
+  position:relative;
+  margin:auto;
+  background:#ffffff12;
+  border:1px solid #ffffff40;
+  border-radius:35px;
+  backdrop-filter:blur(10px);
+  overflow:hidden;
+}
+
+.flower{
+  position:absolute;
+  width:80px;
+  height:80px;
+  cursor:pointer;
+  transition:.35s;
+  z-index:5;
+}
+
+.flower:hover{
+  transform:scale(1.12);
+}
+
+.petal{
+  position:absolute;
+  width:38px;
+  height:55px;
+  left:21px;
+  top:13px;
+  background:linear-gradient(145deg,#ffb0cb,#f5367e);
+  border-radius:50%;
+  transform-origin:19px 28px;
+  box-shadow:0 4px 9px #0004;
+}
+
+.petal:nth-child(1){transform:rotate(0deg) translateY(-10px)}
+.petal:nth-child(2){transform:rotate(72deg) translateY(-10px)}
+.petal:nth-child(3){transform:rotate(144deg) translateY(-10px)}
+.petal:nth-child(4){transform:rotate(216deg) translateY(-10px)}
+.petal:nth-child(5){transform:rotate(288deg) translateY(-10px)}
+
+.center{
+  position:absolute;
+  width:25px;
+  height:25px;
+  left:28px;
+  top:28px;
+  background:#ffd34e;
+  border-radius:50%;
+  z-index:5;
+  box-shadow:0 0 15px #ffd34e;
+}
+
+.f1{left:5%;top:30px}
+.f2{left:35%;top:10px}
+.f3{left:68%;top:45px}
+.f4{left:18%;top:150px}
+.f5{left:52%;top:155px}
+.f6{left:75%;top:210px}
+.f7{left:4%;top:260px}
+.f8{left:38%;top:275px}
+
+.stem{
+  position:absolute;
+  width:7px;
+  height:150px;
+  background:#43a866;
+  bottom:0;
+  left:50%;
+  transform:rotate(-8deg);
+  transform-origin:bottom;
+  border-radius:10px;
+}
+
+/* ================= PHOTO STACK ================= */
+.photos{
+  flex-direction:column;
+  text-align:center;
+}
+
+.photos h2{
+  font-family:'Great Vibes',cursive;
+  font-size:58px;
+}
+
+.photos p{
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.stack{
+  width:290px;
+  height:370px;
+  position:relative;
+  margin:15px auto 25px;
+  cursor:pointer;
+  perspective:1000px;
+}
+
+.photo{
+  position:absolute;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  padding:10px;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 18px 40px #76133f66;
+  transition:transform .6s ease, opacity .5s;
+  transform-origin:center bottom;
+  user-select:none;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:11px;
+  display:block;
+}
+
+.photo.move{
+  transform:translateX(420px) rotate(25deg) !important;
+  opacity:0;
+}
+
+/* ================= LETTER ================= */
+.letter{
+  flex-direction:column;
+  text-align:center;
+}
+
+.envelope{
+  width:300px;
+  padding:35px 25px;
+  border-radius:25px;
+  background:#fff;
+  color:#b52d65;
+  box-shadow:0 20px 60px #74123e66;
+  animation:floatLetter 3s infinite;
+}
+
+@keyframes floatLetter{
+  50%{transform:translateY(-10px)}
+}
+
+.envelope h2{
+  font-family:'Great Vibes',cursive;
+  font-size:50px;
+}
+
+.envelope p{
+  margin-top:20px;
+  font-size:14px;
+  line-height:1.9;
+}
+
+/* ================= END ================= */
+.end{
+  flex-direction:column;
+  text-align:center;
+}
+
+.end h1{
+  font-family:'Great Vibes',cursive;
+  font-size:75px;
+}
+
+.end p{
+  max-width:500px;
+  line-height:1.8;
+  font-size:14px;
+}
+
+/* ================= CUSTOM MODAL POPUP ================= */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(5px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+  opacity:0;
+  pointer-events:none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.modal-card{
+  width:min(320px, 90%);
+  background:#fff;
+  color:#b52d65;
+  padding:25px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-card{
+  transform: scale(1);
+}
+
+.modal-card p{
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:20px;
+  font-weight: 500;
+}
+
+.modal-btn{
+  background:#e85c98;
+  color:white;
+  border:none;
+  padding:10px 22px;
+  border-radius:20px;
+  font-weight:600;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:450px){
+  .birthday h1{font-size:60px;}
+  .giftPage h1{font-size:52px;}
+  .end h1{font-size:60px;}
+  .stack{width:270px; height:350px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg" id="bg"></div>
+<div class="flash" id="flash"></div>
+
+<!-- Custom Modal / Popup -->
+<div class="modal-overlay" id="customModal" onclick="closeModal()">
+  <div class="modal-card" onclick="event.stopPropagation()">
+    <p id="modalMessage">Pesan di sini</p>
+    <button class="modal-btn" onclick="closeModal()">Tutup ✨</button>
+  </div>
+</div>
+
+<!-- ================= PIN ================= -->
+<section class="screen" id="lockScreen">
+  <div class="lockCard">
+    <div class="smallTitle">A little surprise for you</div>
+    <h1>Hi, Princesss! 💗</h1>
+    <p>Ada sesuatu yang sudah disiapkan khusus untuk hari spesialmu.</p>
+
+    <div class="pinDisplay" id="pinDisplay">
+      • • • • • • • •
+    </div>
+
+    <div class="keypad">
+      <button onclick="pressKey('1')">1</button>
+      <button onclick="pressKey('2')">2</button>
+      <button onclick="pressKey('3')">3</button>
+      <button onclick="pressKey('4')">4</button>
+      <button onclick="pressKey('5')">5</button>
+      <button onclick="pressKey('6')">6</button>
+      <button onclick="pressKey('7')">7</button>
+      <button onclick="pressKey('8')">8</button>
+      <button onclick="pressKey('9')">9</button>
+      <button onclick="clearPin()">⌫</button>
+      <button onclick="pressKey('0')">0</button>
+      <button onclick="checkPin()">✓</button>
+    </div>
+
+    <div class="error" id="error"></div>
+  </div>
+</section>
+
+<!-- ================= GIFT ================= -->
+<section class="screen giftPage hidden" id="giftScreen">
+  <h1>A Gift For You 🎁</h1>
+  <p>Jangan buru-buru... tekan hadiahnya.</p>
+  <div class="gift" onclick="openGift()">
+    <div class="bow"></div>
+    <div class="lid"></div>
+    <div class="box"></div>
+  </div>
+  <div class="openHint">✨ Tap the gift ✨</div>
+</section>
+
+<!-- ================= BIRTHDAY ================= -->
+<section class="screen birthday hidden" id="birthdayScreen">
+  <div class="smallTitle">TODAY IS YOUR SPECIAL DAY</div>
+  <h1>Happy Birthday!</h1>
+  <div class="name">FRISKA PANCA PERMATASARI GULO 💗</div>
+  <div class="typing" id="typing"></div>
+  <div>
+    <button class="button" onclick="makeWish()">✨ Make a Wish</button>
+    <button class="button" onclick="nextScreen('bouquetScreen')">💐 Continue</button>
+  </div>
+  <div class="scrollHint">↓ Ada kejutan yang uwowww ↓</div>
+</section>
+
+<!-- ================= BOUQUET ================= -->
+<section class="screen bouquet hidden" id="bouquetScreen">
+  <h2>A Bouquet For You 💐</h2>
+  <p>Coba tekan bunga-bunganya ✨</p>
+  <div class="flowerArea">
+    <div class="stem"></div>
+    <div class="flower f1" onclick="flowerMessage('Semoga hari-harimu selalu penuh warna 🌸')">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div>
+    </div>
+    <div class="flower f2" onclick="flowerMessage('kamu kok serakah banget si.serakah kenapa?iya soalnya cewek lain mau cantik,imut,tapi kamu ambil semua itu🌼')">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div>
+    </div>
+    <div class="flower f3" onclick="flowerMessage('Tetap tersenyum meskipun hari tidak selalu sempurna 🌹')">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div>
+    </div>
+    <div class="flower f4" onclick="flowerMessage('Semoga tahun ini membawa banyak cerita indah 🌺')">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div>
+    </div>
+    <div class="flower f5" onclick="flowerMessage('heran sama orang yang jago gombal, kokbisa ya kepikiran kata²nya,sedangkan dipikiran aku hanya ada kamu👀')">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div>
+    </div>
+    <div class="flower f6" onclick="flowerMessage('10+10×10 = 200 mwehehehe✨')">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div>
+    </div>
+    <div class="flower f7" onclick="flowerMessage('ini kameranya yang salah angle apa kamunya yang looks like angel')">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div>
+    </div>
+    <div class="flower f8" onclick="flowerMessage('Happy Birthday, Friska! 🎂💗')">
+      <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="center"></div>
+    </div>
+  </div>
+  <button class="button" onclick="nextScreen('photoScreen')">📸 Lihat Kenangan</button>
+</section>
+
+<!-- ================= PHOTOS ================= -->
+<section class="screen photos hidden" id="photoScreen">
+  <h2>Little Memories 📸</h2>
+  <p>Tekan foto paling depan untuk melihat foto berikutnya.</p>
+  <div class="stack" id="photoStack">
+      <div class="photo"><img src="/images/a.JPG" alt="Foto 1"></div>
+    <div class="photo"><img src="/images/b.jpg" alt="Foto 2"></div>
+    <div class="photo"><img src="/images/c.JPG" alt="Foto 3"></div>
+    <div class="photo"><img src="/images/d.jpg" alt="Foto 4"></div>
+    <div class="photo"><img src="/images/e.jpg" alt="Foto 5"></div>
+  </div>
+  <button class="button" onclick="nextScreen('letterScreen')">💌 Ada satu pesan lagi</button>
+</section>
+
+<!-- ================= LETTER ================= -->
+<section class="screen letter hidden" id="letterScreen">
+  <div class="envelope">
+    <div style="font-size:45px;">💌</div>
+    <h2>One Last Thing</h2>
+    <p>
+      Selamat ulang tahun, Friska. 🎂
+      <br><br>
+      Semoga di usia yang baru ini, ada lebih banyak hal baik yang datang, lebih banyak alasan untuk tersenyum, dan lebih banyak mimpi yang berhasil diwujudkan.
+      <br><br>
+      Apa pun yang sedang kamu perjuangkan, semoga langkahmu selalu dimudahkan. ✨
+    </p>
+  </div>
+  <button class="button" onclick="nextScreen('endScreen')">💗 Buka penutup</button>
+</section>
+
+<!-- ================= END ================= -->
+<section class="screen end hidden" id="endScreen">
+  <div class="smallTitle">THIS LITTLE GIFT IS FOR YOU</div>
+  <h1>Stay Happy ♡</h1>
+  <p>Terima kasih sudah sampai di akhir kado kecil ini. Semoga senyum yang muncul hari ini bertahan jauh lebih lama daripada halaman terakhir ini. 💕</p>
+  <br>
+  <div style="font-size:35px;">🌸 🌷 💐 🌹 🌺</div>
+  <br>
+  <div><b>Happy Birthday, Friska! 🎂✨</b></div>
+</section>
+
+<script>
+const correctPIN = "04102011";
+let pin = "";
+
+const pinDisplay = document.getElementById("pinDisplay");
+const error = document.getElementById("error");
+
+function pressKey(num){
+  if(pin.length >= 8) return;
+  pin += num;
+  updatePinDisplay();
+  error.textContent = "";
+}
+
+function clearPin(){
+  pin = pin.slice(0,-1);
+  updatePinDisplay();
+}
+
+function updatePinDisplay(){
+  if(pin.length === 0){
+    pinDisplay.textContent = "• • • • • • • •";
+  } else {
+    pinDisplay.textContent = "• ".repeat(pin.length) + "  ".repeat(8 - pin.length);
+  }
+}
+
+function checkPin(){
+  if(pin === correctPIN){
+    document.getElementById("lockScreen").classList.add("hidden");
+    document.getElementById("giftScreen").classList.remove("hidden");
+    createHearts(15);
+  }else{
+    error.textContent = "Tanggal ultah sendiri kaga tau 🗿";
+    pin = "";
+    updatePinDisplay();
+  }
+}
+
+function nextScreen(id){
+  document.querySelectorAll(".screen").forEach(s => s.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo({top:0, behavior:"smooth"});
+  createHearts(8);
+}
+
+function openGift(){
+  document.getElementById("flash").classList.add("active");
+  confettiExplosion(120);
+  createHearts(35);
+  setTimeout(() => {
+    nextScreen("birthdayScreen");
+    startTyping();
+  },700);
+}
+
+function confettiExplosion(amount){
+  for(let i=0;i<amount;i++){
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random()*100 + "vw";
+    c.style.background = ["#ff3f87","#ffd447","#ffffff","#ff8fba","#c86bff","#61e6ff"][Math.floor(Math.random()*6)];
+    c.style.animationDuration = (2 + Math.random()*3) + "s";
+    c.style.animationDelay = Math.random()*1.2 + "s";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(),6000);
+  }
+}
+
+function startTyping(){
+  const text = "Hari ini adalah hari yang spesial, karena dunia sedang merayakan hadirnya seseorang yang istimewa. Semoga setiap langkah ke depan membawa cerita yang lebih indah. 💗";
+  const el = document.getElementById("typing");
+  el.textContent = "";
+  let i = 0;
+  const timer = setInterval(() => {
+    el.textContent += text[i];
+    i++;
+    if(i >= text.length){ clearInterval(timer); }
+  },35);
+}
+
+function makeWish(){
+  confettiExplosion(80);
+  createHearts(30);
+  showModal("✨ Make your wish... ✨<br><br>Pejamkan mata sebentar, pikirkan satu harapan terbaikmu.<br>Semoga suatu hari nanti menjadi nyata. 💗");
+}
+
+function flowerMessage(message){
+  createHearts(12);
+  showModal(message);
+}
+
+function showModal(msg){
+  document.getElementById("modalMessage").innerHTML = msg;
+  document.getElementById("customModal").classList.add("show");
+}
+
+function closeModal(){
+  document.getElementById("customModal").classList.remove("show");
+}
+
+/* Photo Stack Logic */
+const stack = document.getElementById("photoStack");
+let photoMoving = false;
+
+stack.addEventListener("click", () => {
+  if(photoMoving) return;
+  const photos = Array.from(stack.querySelectorAll(".photo"));
+  if(photos.length <= 1) return;
+  
+  photoMoving = true;
+  const first = photos[0];
+  first.classList.add("move");
+
+  setTimeout(() => {
+    first.classList.remove("move");
+    stack.appendChild(first);
+    updatePhotos();
+    photoMoving = false;
+  },600);
+});
+
+function updatePhotos(){
+  const photos = Array.from(stack.querySelectorAll(".photo"));
+  const rotations = [-2, 3, -5, 6, -8];
+  const scales = [1, .97, .94, .91, .88];
+
+  photos.forEach((photo, index) => {
+    photo.style.zIndex = photos.length - index;
+    photo.style.transform = `rotate(${rotations[index] || 0}deg) scale(${scales[index] || .88})`;
+  });
+}
+updatePhotos();
+
+function createHearts(amount){
+  for(let i=0;i<amount;i++){
+    setTimeout(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = ["💗","💕","💖","✨","🌸"][Math.floor(Math.random()*5)];
+      heart.style.left = Math.random()*100 + "vw";
+      heart.style.fontSize = (15 + Math.random()*25) + "px";
+      heart.style.animationDuration = (4 + Math.random()*4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(),9000);
+    },i*100);
+  }
+}
+
+function createStars(){
+  const bg = document.getElementById("bg");
+  for(let i=0;i<35;i++){
+    const star = document.createElement("div");
+    star.className = "star";
+    star.textContent = Math.random() > .5 ? "✦" : "·";
+    star.style.left = Math.random()*100 + "%";
+    star.style.top = Math.random()*100 + "%";
+    star.style.fontSize = (8 + Math.random()*16) + "px";
+    star.style.animationDelay = Math.random()*2 + "s";
+    bg.appendChild(star);
+  }
+}
+
+createStars();
+createHearts(10);
+</script>
+
+</body>
+</html>
